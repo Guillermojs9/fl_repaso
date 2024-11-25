@@ -10,7 +10,21 @@ class HomeScreen extends StatelessWidget {
         title: const Text("HomeScreen"),
         backgroundColor: Colors.green,
       ),
-      body: const Center(child: Text("Hola")),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          const Expanded(child: Center(child: Text("Hola"))),
+          Padding(
+            padding: const EdgeInsets.only(bottom: 16.0),
+            child: FloatingActionButton(
+              onPressed: () {},
+              backgroundColor: Colors.green,
+              foregroundColor: Colors.white,
+              child: const Text("Hola"),
+            ),
+          )
+        ],
+      ),
     );
   }
 }
