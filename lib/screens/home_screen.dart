@@ -1,3 +1,4 @@
+import 'package:fl_repaso/components/FloatingActionCustomButton.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -28,41 +29,35 @@ class _HomeScreenState extends State<HomeScreen> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                FloatingActionButton(
-                  onPressed: () {
-                    setState(() {
-                      contador--;
-                    });
-                  },
-                  backgroundColor: Colors.green,
-                  foregroundColor: Colors.white,
-                  child: const Text("-", style: TextStyle(fontSize: 20)),
-                ),
-                FloatingActionButton(
-                  onPressed: () {
-                    setState(() {
-                      contador = 0;
-                    });
-                  },
-                  backgroundColor: Colors.green,
-                  foregroundColor: Colors.white,
-                  child: const Text("0", style: TextStyle(fontSize: 20)),
-                ),
-                FloatingActionButton(
-                  onPressed: () {
-                    setState(() {
-                      contador++;
-                    });
-                  },
-                  backgroundColor: Colors.green,
-                  foregroundColor: Colors.white,
-                  child: const Text("+", style: TextStyle(fontSize: 20)),
-                ),
+                Floatingactioncustombutton(
+                    onPressed: reducirContador, text: "-"),
+                Floatingactioncustombutton(
+                    onPressed: igualarContador, text: "0"),
+                Floatingactioncustombutton(
+                    onPressed: aumentarContador, text: "+"),
               ],
             ),
           )
         ],
       ),
     );
+  }
+
+  void aumentarContador() {
+    setState(() {
+      contador++;
+    });
+  }
+
+  void igualarContador() {
+    setState(() {
+      contador = 0;
+    });
+  }
+
+  void reducirContador() {
+    setState(() {
+      contador--;
+    });
   }
 }
