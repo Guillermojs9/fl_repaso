@@ -19,18 +19,46 @@ class _HomeScreenState extends State<HomeScreen> {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Expanded(child: Center(child: Text('$contador'))),
+          Expanded(
+              child: Center(
+                  child:
+                      Text('$contador', style: const TextStyle(fontSize: 30)))),
           Padding(
             padding: const EdgeInsets.only(bottom: 16.0),
-            child: FloatingActionButton(
-              onPressed: () {
-                setState(() {
-                  contador++;
-                });
-              },
-              backgroundColor: Colors.green,
-              foregroundColor: Colors.white,
-              child: const Text("+", style: const TextStyle(fontSize: 20)),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                FloatingActionButton(
+                  onPressed: () {
+                    setState(() {
+                      contador--;
+                    });
+                  },
+                  backgroundColor: Colors.green,
+                  foregroundColor: Colors.white,
+                  child: const Text("-", style: TextStyle(fontSize: 20)),
+                ),
+                FloatingActionButton(
+                  onPressed: () {
+                    setState(() {
+                      contador = 0;
+                    });
+                  },
+                  backgroundColor: Colors.green,
+                  foregroundColor: Colors.white,
+                  child: const Text("0", style: TextStyle(fontSize: 20)),
+                ),
+                FloatingActionButton(
+                  onPressed: () {
+                    setState(() {
+                      contador++;
+                    });
+                  },
+                  backgroundColor: Colors.green,
+                  foregroundColor: Colors.white,
+                  child: const Text("+", style: TextStyle(fontSize: 20)),
+                ),
+              ],
             ),
           )
         ],
