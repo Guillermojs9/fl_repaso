@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  int contador = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -13,14 +19,18 @@ class HomeScreen extends StatelessWidget {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const Expanded(child: Center(child: Text("Hola"))),
+          Expanded(child: Center(child: Text('$contador'))),
           Padding(
             padding: const EdgeInsets.only(bottom: 16.0),
             child: FloatingActionButton(
-              onPressed: () {},
+              onPressed: () {
+                setState(() {
+                  contador++;
+                });
+              },
               backgroundColor: Colors.green,
               foregroundColor: Colors.white,
-              child: const Text("Hola"),
+              child: const Text("+", style: const TextStyle(fontSize: 20)),
             ),
           )
         ],
